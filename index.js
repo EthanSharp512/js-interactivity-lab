@@ -21,16 +21,16 @@ function addMovie(event) {
 
 function deleteMovie(event){
     event.target.parentNode.remove();
-    message.textContent = 'Movie deleted!';
+    message.textContent = `${event.target.parentNode.textContent} deleted!`;
     revealMessage();
 }
 
 const crossOffMovie = (event)  => {
     event.target.classList.toggle('checked')
     if(event.target.classList.contains('checked')){
-        message.textContent = "Movie Watched"
+        message.textContent = `${event.target.textContent} watched!`
     } else {
-        message.textContent = "Movie added back"
+        message.textContent = `${event.target.textContent} added back!`
     }
 
     revealMessage();
@@ -46,4 +46,10 @@ function revealMessage()  {
     setTimeout(fn, 1000)
 }
 
-//Create a function called revealMessage. Inside the function, call setTimeout, passing in a callback function and a time in milliseconds. - The callback function should add the hide class to message, you can see what the hide class does in the CSS file - We want the callback function to run 1 second after setTimeout is invoked, so for the second argument, pass in the number 1000
+//Now, you’ll change your message’s text in the crossOffMovie function so that it tells the user which movie they just crossed off or added back in.
+
+//In the if block inside of the crossOffMovie function, change the message’s textContent to be a string that says something like ‘MOVIE watched!’ where MOVIE is the title of the movie they clicked on. You can access that title in the textContent property of event.target, and you can use concatenation or a template string.
+
+// In the else block, change the string in the same way so that it contains the title of the movie
+
+// Test it out!
